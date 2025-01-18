@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Algorithmic Trading</title>
+    <link rel="stylesheet" href="styles.css" type="text/css" />
+</head>
+<body>
+    <!-- Menu Bar -->
+    <div class="menu-bar">
+        <a href="https://www.emilwestling.com/index.html">About Me</a>
+        <a href="https://www.emilwestling.com/portfolio.html">Portfolio</a>
+        <a href="https://www.emilwestling.com/resume.pdf" target="_blank">Resume</a>
+      </div>
+    <header>
+        <h1>Algorithmic Trading</h1>
+    </header>
+    <nav>
+        <a href="#overview">Overview</a>
+        <a href="#github">GitHub</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    <div class="container">
+        <section id="walkthrough" class="section">
+            <h2>Overview</h2>
+            <p>
+                What if you could use deep learning to predict stock prices and beat the market? That’s exactly what we set out to explore in this project. Our goal was to implement a deep learning algorithm that could outperform the S&P 500 index. Spoiler alert: we did—at least in a simulated environment.
+            </p>
+            <p>
+                To make this project manageable, we focused on the top 150 stocks in the S&P 500 by dollar volume. This narrowed focus significantly reduced training time while still providing a robust dataset. We sourced the data using the <a class="link" href="https://pypi.org/project/yfinance/">yfinance</a> API, which sources data from Yahoo Finance. The dataset spanned from January 1, 2000, to February 19, 2024.
+            </p>
+
+            <p>
+                The trading strategy involved the following steps:
+                <ul>
+                    <li>
+                        Forecast stock prices using a deep learning model.
+                    </li>
+                    <li>
+                        Select the top 15 stocks predicted to perform best in the next month. If fewer than 15 stocks are forecasted to have positive returns, select only those with positive predictions.
+                    </li>
+                    <li>
+                        Optimize the portfolio’s weights based on the Sharpe ratio.
+                    </li>
+                    <li>
+                        Repeat the process monthly.
+                    </li>
+                </ul>
+
+            </p>
+
+            <p>
+                For stock price predictions, we used a Long Short-Term Memory (LSTM) model, a type of recurrent neural network well-suited for sequential data like stock prices. Our LSTM architecture consisted of four layers, each with a dropout factor to prevent overfitting.
+            </p>
+
+            <p>
+                Once predictions were generated, we constructed a portfolio by selecting the top 15 stocks with the highest predicted returns. The weights were then optimized to maximize the Sharpe ratio, which measures risk-adjusted returns.
+            </p>
+
+            <p>
+                However, it’s important to note that backtesting doesn’t guarantee real-world success. Backtests often omit trading costs and other practical challenges. While the results are promising, implementing this strategy with real money would be an entirely different challenge. Proceed with caution!
+            </p>
+
+            <div class="visualization">
+                <img src="images/portfolio_performance.png" alt="Portfolio Performance" />
+            </div>
+
+        </section>
+        <section id="github" class="section">
+            <h2>GitHub</h2>
+            <p>
+                The full code is available on my
+                <a class="link" href="https://github.com/emilwestling/QuantTrading" target="_blank">GitHub</a>.
+            </p>
+        </section>
+        <section id="contact" class="section">
+            <h2>Contact</h2>
+            <p>
+                For more information or inquiries about this project, please contact me at
+                <br>
+                <a class="link" href="mailto:westling01@gmail.com">westling01@gmail.com</a>.
+            </p>
+        </section>
+    </div>
+    <footer>
+        <p>&copy; 2025 Emil Westling. All rights reserved.</p>
+    </footer>
+</body>
+</html>
